@@ -1,0 +1,89 @@
+<template>
+  <div class="flex flex-col gap-14">
+    <!-- Header -->
+ <header class="flex items-center justify-between px-4 pt-8 relative">
+      <img src="/logo.png" alt="Mobi-Baby Logo" />
+      <!-- Hamburger Icon (Mobile Only) -->
+      <button
+        class="mdlg:hidden flex items-center justify-center p-2 rounded focus:outline-none"
+        @click="isNavOpen = true"
+        aria-label="Open navigation"
+      >
+       <Menu class="w-8 h-8 text-primaryBlue" />
+      </button>
+      <nav class="items-center gap-5 hidden mdlg:flex">
+        <a href="#why-mobi-baby">Why MobiBaby?</a>
+        <a href="#silent-crisis">A Silent Crisis</a>
+      </nav>
+    <BaseSelect :placeholder="languages[0]" className="hidden mdlg:inline-flex">
+      <SelectItem v-for="v in languages" :value="v">{{ v }}</SelectItem>
+    </BaseSelect>
+      <!-- Slide-in Mobile Nav -->
+      <transition name="slide">
+        <div
+          v-if="isNavOpen"
+          class="fixed inset-0 z-40 flex"
+        >
+          <!-- Overlay -->
+          <div
+            class="fixed inset-0 bg-black/30 bg-opacity-40"
+            @click="isNavOpen = false"
+          ></div>
+          <!-- Drawer -->
+          <div class="relative bg-white w-64 max-w-[80vw] h-full shadow-lg z-50 flex flex-col p-6 animate-slidein">
+            <button
+              class="absolute top-4 right-4 text-gray-500 hover:text-primaryBlue"
+              @click="isNavOpen = false"
+              aria-label="Close navigation"
+            >
+            <X class="w-8 h-8 text-primaryBlue" />
+            </button>
+            <nav class="flex flex-col gap-6 mt-8">
+              <a href="#why-mobi-baby" class="text-primaryBlue font-semibold" @click="isNavOpen = false">Why MobiBaby?</a>
+              <a href="#silent-crisis" class="text-primaryBlue font-semibold" @click="isNavOpen = false">A Silent Crisis</a>
+               <BaseSelect :placeholder="languages[0]">
+      <SelectItem v-for="v in languages" :value="v">{{ v }}</SelectItem>
+    </BaseSelect>
+            </nav>
+          </div>
+        </div>
+      </transition>
+    </header>
+    <!-- Hero Section -->
+    <HomeHero />
+    <!-- Why MobiBaby -->
+    <HomeWhyMobiBaby />
+    <!-- Silent Crisis Section -->
+    <HomeSilentCrisis />  
+    <!-- Footer -->
+<HomeFooter />
+  </div>
+</template>
+
+<script setup lang="ts">
+import {
+  Menu,
+  X,
+} from "lucide-vue-next";
+const isNavOpen = ref(false);
+const languages = [
+  "English", "Yoruba", "Igbo", "Hausa"
+]
+</script>
+
+<style scoped>
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+}
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-enter-to,
+.slide-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+</style>
