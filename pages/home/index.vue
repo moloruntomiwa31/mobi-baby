@@ -15,9 +15,7 @@
         <a href="#why-mobi-baby">Why MobiBaby?</a>
         <a href="#silent-crisis">A Silent Crisis</a>
       </nav>
-    <BaseSelect :placeholder="languages[0]" className="hidden mdlg:inline-flex">
-      <SelectItem v-for="v in languages" :value="v">{{ v }}</SelectItem>
-    </BaseSelect>
+    <BaseSelect :placeholder="languages[0]" :options="languages" className="hidden mdlg:inline-flex w-40" />
       <!-- Slide-in Mobile Nav -->
       <transition name="slide">
         <div
@@ -41,9 +39,7 @@
             <nav class="flex flex-col gap-6 mt-8">
               <a href="#why-mobi-baby" class="text-primaryBlue font-semibold" @click="isNavOpen = false">Why MobiBaby?</a>
               <a href="#silent-crisis" class="text-primaryBlue font-semibold" @click="isNavOpen = false">A Silent Crisis</a>
-               <BaseSelect :placeholder="languages[0]">
-      <SelectItem v-for="v in languages" :value="v">{{ v }}</SelectItem>
-    </BaseSelect>
+               <BaseSelect :placeholder="languages[0]" :options="languages" className="w-40" />
             </nav>
           </div>
         </div>
@@ -65,6 +61,7 @@ import {
   Menu,
   X,
 } from "lucide-vue-next";
+useHead({ title: 'MobiBaby' })
 const isNavOpen = ref(false);
 const languages = [
   "English", "Yoruba", "Igbo", "Hausa"

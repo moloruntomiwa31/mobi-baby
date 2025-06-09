@@ -9,6 +9,13 @@
   --color-primaryBlue: #1a1a2e;
   --color-primaryYellow: #ffd54f;
   --color-primaryAqua: #00b8a9;
+  --color-primaryGreen: #00b894;
+  --color-primaryRed: #d63031;
+  --color-primaryPurple: #6c5ce7;
+  --color-primaryPink: #fd79a8;
+  --color-primaryOrange: #e17055;
+  --color-primaryGray: #636e72;
+  --color-gray: #F2E5C3;
   --breakpoint-sm: 420px;
   --breakpoint-md: 768px;
   --breakpoint-mdlg: 1000px;
@@ -127,6 +134,6 @@
     @apply border-border outline-ring/50 scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-display;
   }
 }

@@ -1,19 +1,20 @@
 <template>
   <Select>
-    <SelectTrigger class="!border-primaryYellow focus-visible:ring-primaryYellow w-40 rounded-full" :class="[className]">
+    <SelectTrigger class="border-current focus-visible:ring-current cursor-pointer" :class="[className]">
       <SelectValue :placeholder="placeholder" />
     </SelectTrigger>
-    <SelectContent class="bg-white border-primaryYellow">
+    <SelectContent>
       <SelectGroup>
-        <slot></slot>
+        <SelectItem v-for="v in options" :value="v">{{ v }}</SelectItem>
       </SelectGroup>
     </SelectContent>
   </Select>
 </template>
 
 <script setup lang="ts">
-const {placeholder = '', className = ''} =  defineProps<{
+const {placeholder = '', className = '', options = []} =  defineProps<{
   placeholder?: string,
   className?: string
+  options?: Array<string>
 }>()
 </script>
