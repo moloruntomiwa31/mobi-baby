@@ -1,6 +1,6 @@
 <template>
     <div class="bg-gray-100">
-        <header class="sticky top-0 left-0 p-4 h-[40px]">
+        <header class="fixed top-0 left-0 p-4">
             <div class="flex justify-start">
                 <MoveLeft class="w-6 h-6 text-primaryBlue cursor-pointer" @click="$router.back()" />
             </div>

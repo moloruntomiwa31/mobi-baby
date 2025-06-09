@@ -43,9 +43,9 @@ const route = useRoute()
 const type = computed(() => route.query.type)
 const accountSetup = [
   {
-    value: "mother",
-    title: "Mother",
-    description: "I am a mother looking to track my baby's health and milestones.",
+    value: "parent",
+    title: "Parent",
+    description: "I am a parent looking to track my baby's health and milestones.",
     icon: Baby,
     bgClass: "bg-primaryBlue",
     iconColor: "text-primaryBlue"

@@ -39,11 +39,17 @@ const whyMobiBaby = [
       "Get fast, reliable answers to health concerns, baby care questions, or emergency steps—powered by local medical data.",
   },
   {
-    id: 3,
-    title: "🌐 Offline Access",
+    id: 6,
+    title: "📱 Anytime, Anywhere",
     description:
-      "No internet? No problem. MobiBaby works offline to help you log symptoms, check tips, and track baby milestones.",
+      "Access MobiBaby anytime, anywhere and reach out to our health consultants about your baby's health, in real-time, on the go.",
   },
+  // {
+  //   id: 3,
+  //   title: "🌐 Offline Access",
+  //   description:
+  //     "No internet? No problem. MobiBaby works offline to help you log symptoms, check tips, and track baby milestones.",
+  // },
   {
     id: 4,
     title: "🔔 Never Miss a Milestone",

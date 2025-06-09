@@ -1,5 +1,5 @@
 <template>
-	<div class="h-[calc(100vh-40px)] flex items-center justify-center">
+	<div class="h-screen flex items-center justify-center">
 	  <form class="bg-white w-4/5 max-w-5xl px-8 py-6 rounded-xl shadow-lg">
   
 		<!-- Progress Bar -->
@@ -45,23 +45,27 @@
 			</div>
 			<BaseText
 			  size="xs"
-			  :content="type === 'mother' ? 'Upload baby photo here' : 'Upload your photo'"
+			  :content="type === 'parent' ? 'Upload baby photo here' : 'Upload your photo'"
 			  className="text-white font-medium tracking-wide text-center"
 			/>
 		  </div>
   
 		  <!-- Dynamic Form Content -->
 		  <div class="w-full mdlg:w-3/5 flex flex-col gap-6">
-			<template v-if="tab === 'profile' && type === 'mother'">
+			<template v-if="tab === 'profile' && type === 'parent'">
 			  <div class="grid grid-cols-2 gap-6">
 				<div class="flex flex-col gap-2">
-				  <Label for="mother">Mother's Name</Label>
-				  <Input id="mother" type="text" placeholder="Aminat Shekirat" class="bg-gray p-4 rounded-md w-full" />
+				  <Label for="parent">Parent's Name</Label>
+				  <Input id="parent" type="text" placeholder="Aminat Shekirat" class="bg-gray p-4 rounded-md w-full" />
 				</div>
 				<div class="flex flex-col gap-2">
 				  <Label for="baby">Baby's Name</Label>
 				  <Input id="baby" type="text" placeholder="Sekinat" class="bg-gray p-4 rounded-md w-full" />
 				</div>
+			  </div>
+			  <div class="flex flex-col gap-2">
+				<Label for="clinic">Baby's Date of Birth</Label>
+				 <DatePicker />
 			  </div>
 			  <div class="flex flex-col gap-2">
 				<Label for="gender">Baby's Gender</Label>
@@ -106,18 +110,44 @@
 			  </div>
 			</template>
   
-			<template v-if="tab === 'type' && type === 'mother'">
+			<template v-if="tab === 'type' && type === 'parent'">
 			  <div class="flex flex-col gap-2">
-				<Label for="clinic">Hospital / Clinic Name</Label>
-				<Input id="clinic" type="text" placeholder="General Hospital, Kano" class="bg-gray p-4 rounded-md w-full" />
+				<Label for="vaccination">Has your baby had their first vaccination?</Label>
+				<BaseSelect
+				  id="vaccination"
+				  :options="['Yes', 'No', 'Not Sure']"
+				  className="!bg-gray rounded-md !border-none !p-4 w-full"
+				/>
+			  </div>
+		<div class="grid md:grid-cols-2 gap-6 md:gap-2 w-full">
+			<div class="flex flex-col gap-2">
+				<Label for="feeding">How's your baby currently being fed?</Label>
+				<BaseSelect
+				  id="feeding"
+				  :options="['Breastfeeding', 'Formula Feeding', 'Mixed Feeding']"
+				  className="!bg-gray rounded-md !border-none !p-4 w-full"
+				/>
 			  </div>
 			  <div class="flex flex-col gap-2">
-				<Label for="experience">Years of Experience</Label>
-				<Input id="experience" type="number" placeholder="5" min="0" class="bg-gray p-4 rounded-md w-full" />
+				<Label for="concerns">Do you have any feeding concern?</Label>
+				<Input id="concerns" type="text" placeholder="Spitting out alot" class="bg-gray p-4 rounded-md w-full" />
+			  </div>
+		</div>
+			  <div class="flex flex-col gap-2">
+				<Label for="sleeping">How well is your baby sleeping?</Label>
+				<BaseSelect
+				  id="sleeping"
+				  :options="['Sleeps well', 'Wakes up frequently', 'Sleeps less than 6 hours']"
+				  className="!bg-gray rounded-md !border-none !p-4 w-full"
+				/>
 			  </div>
 			  <div class="flex flex-col gap-2">
-				<Label for="specialization">Area of Specialization</Label>
-				<Input id="specialization" type="text" placeholder="Obstetrics & Gynecology" class="bg-gray p-4 rounded-md w-full" />
+				<Label for="health">Any current health concern?</Label>
+				<BaseSelect
+				  id="health"
+				  :options="['Fever', 'Cough', 'Cold', 'Rash', 'Diarrhea', 'Jaundice', 'None']"
+				  className="!bg-gray rounded-md !border-none !p-4 w-full"
+				/>
 			  </div>
 			</template>
   
@@ -160,7 +190,7 @@
   import { User, SquareCheck } from 'lucide-vue-next'
   
   type Tab = 'profile' | 'type'
-  type UserType = 'mother' | 'medical-practitioner'
+  type UserType = 'parent' | 'medical-practitioner'
   
   const route = useRoute()
   const type = computed(() => route.query.type as UserType)
@@ -168,7 +198,7 @@
   
   const accountSetupOptions = computed(() => [
 	{ name: 'Profile', id: 'profile', hide: false, done: false },
-	{ name: type.value === 'mother' ? 'Details' : 'Experience', id: 'type', hide: false, done: false }
+	{ name: type.value === 'parent' ? 'Details' : 'Experience', id: 'type', hide: false, done: false }
   ])
   
   const visibleOptions = computed(() => accountSetupOptions.value.filter(o => !o.hide))

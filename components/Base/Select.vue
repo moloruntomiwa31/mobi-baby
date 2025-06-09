@@ -1,7 +1,7 @@
 <template>
   <Select>
     <SelectTrigger class="border-current focus-visible:ring-current cursor-pointer" :class="[className]">
-      <SelectValue :placeholder="placeholder" />
+      <SelectValue :placeholder="String(placeholder)" />
     </SelectTrigger>
     <SelectContent>
       <SelectGroup>
@@ -13,8 +13,8 @@
 
 <script setup lang="ts">
 const {placeholder = '', className = '', options = []} =  defineProps<{
-  placeholder?: string,
+  placeholder?: string | number,
   className?: string
-  options?: Array<string>
+  options?: Array<string | number>
 }>()
 </script>

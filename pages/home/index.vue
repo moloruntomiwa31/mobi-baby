@@ -51,6 +51,8 @@
     <HomeWhyMobiBaby />
     <!-- Silent Crisis Section -->
     <HomeSilentCrisis />  
+    <!-- Join Us -->
+     <HomeJoinUs />
     <!-- Footer -->
 <HomeFooter />
   </div>
