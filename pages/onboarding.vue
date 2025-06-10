@@ -24,8 +24,8 @@
     </div>
     <div class="hidden mdlg:block mdlg:w-1/2 h-screen">
       <img 
-        src="/images/auth-bg.jpg" 
-        alt="Auth Background Image" 
+        src="/images/onboarding-bg.jpg" 
+        alt="Onboarding Background Image" 
         class="w-full h-full object-cover" 
       />  
     </div>

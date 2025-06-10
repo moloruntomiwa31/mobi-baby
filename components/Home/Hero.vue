@@ -15,7 +15,7 @@
       </div>
       <div class="grid grid-cols-1 mdlg:grid-cols-2 gap-4 w-full">
         <Button variant="yellow" size="rounded" @click="navigateTo('/onboarding')">Get started for free</Button>
-        <Button variant="yellowOutline" size="rounded">Login</Button>
+        <Button variant="yellowOutline" size="rounded" @click="navigateTo('/auth/signin')">Login</Button>
       </div>
     </section>
 </template>
