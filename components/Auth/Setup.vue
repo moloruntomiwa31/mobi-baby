@@ -36,10 +36,10 @@
 		</div>
   
 		<!-- Main Content -->
-		<div class="flex flex-col mdlg:flex-row gap-8 items-center w-full">
+		<div class="flex flex-col mdlg:flex-row gap-8 items-center justify-center w-full">
   
 		  <!-- Upload Section -->
-		  <div class="bg-primaryGray w-40 h-40 mdlg:w-80 mdlg:h-80 rounded-full flex flex-col items-center justify-center gap-3 p-4 shadow-md hover:bg-opacity-90 transition">
+		  <div v-if="tab === 'profile'" class="bg-primaryGray w-40 h-40 mdlg:w-80 mdlg:h-80 rounded-full flex flex-col items-center justify-center gap-3 p-4 shadow-md hover:bg-opacity-90 transition">
 			<div class="bg-white/10 rounded-full p-4">
 			  <User class="w-10 h-10 text-white" />
 			</div>

@@ -7,7 +7,7 @@
       <BaseText as="h3" size="md" class="mb-6 text-center">Choose account type</BaseText>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <NuxtLink 
-          v-for="user in accountSetup" 
+          v-for="(user, idx) in accountSetup" 
           :key="user.value"  
           :to="`/onboarding?type=${user.value}`" 
           :class="[user.bgClass, 'flex flex-col items-center justify-center text-center gap-4 p-6 rounded-lg hover:shadow-lg transition-all duration-200 min-h-[200px]']"
@@ -15,7 +15,7 @@
           <div class="bg-white rounded-full w-12 h-12 p-3 flex items-center justify-center">
             <component :is="user.icon" class="w-6 h-6" :class="user.iconColor" />
           </div>
-          <div class="text-white">
+          <div :class="idx === 0 ? 'text-black' : 'text-white'">
             <BaseText as="h4" bold class="mb-2">{{ user.title }}</BaseText>
             <BaseText as="p" size="xs">{{ user.description }}</BaseText>
           </div>
@@ -47,7 +47,7 @@ const accountSetup = [
     title: "Parent",
     description: "I am a parent looking to track my baby's health and milestones.",
     icon: Baby,
-    bgClass: "bg-primaryBlue",
+    bgClass: "bg-primaryYellow",
     iconColor: "text-primaryBlue"
   },
   {

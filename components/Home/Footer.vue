@@ -34,7 +34,7 @@
         />
       </div>
       <div class="flex flex-col items-center gap-2">
-        <img src="/logo.png" alt="MobiBaby Logo" class="h-8" />
+        <Logo class="h-8" />
         <BaseText className="text-white text-xs text-center"
           >&copy;{{ currentYear }} Mobibaby. All rights reserved.</BaseText
         >

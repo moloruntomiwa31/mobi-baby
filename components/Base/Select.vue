@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const {placeholder='--Select--', className = '', options=[]} = defineProps<{
   placeholder?: string | number
   className?: string
   options?: Array<string | number>
