@@ -15,19 +15,27 @@
           : size === '5xl'
           ? 'w-32 h-32'
           : 'w-10 h-10',
-        customClass,
       ]"
     >
-      <slot />
-    </div>
+    <img
+    v-if="src"
+      :src
+      :alt
+      :class="['rounded-full object-cover w-full h-full', customClass]"
+    />
+    <User v-else class="w-8 h-8 text-white" />
+      </div>
   </template>
   
   <script setup lang="ts">
+    import {User} from "lucide-vue-next"
     const {
       size = "lg",
       customClass = "",
     } = defineProps<{
       size?: "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
       customClass?: string | Record<string, boolean>;
-    }>()
+        src?: string;
+      alt?: string;
+        }>()
   </script>

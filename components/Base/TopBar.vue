@@ -1,18 +1,18 @@
 <template>
     <div class="flex items-center justify-between gap-2 sticky top-0 bg-gray">
-        <div class="hidden gap-5 items-center justify-start flex-auto mdlg:flex">
+        <div class="hidden gap-5 items-center justify-between flex-auto mdlg:flex px-8">
 				<NuxtLink
-					class="py-2 pr-3"
-					to="/dashboard"
+                	to="/dashboard"
 				>
 					<Logo />
 				</NuxtLink>
 
-				<NuxtLink
+				<div class="flex items-center justify-center gap-4">
+                    <NuxtLink
 					v-for="tab in tabs"
 					:key="tab.name"
 					class="py-4 flex items-center justify-center gap-1 whitespace-nowrap"
-                    active-class="text-primaryAqua"
+                    active-class="text-primaryAqua border-primaryAqua border-b-2"
 					:to="tab.path"
 				>
 					<component
@@ -21,9 +21,8 @@
 					/>
 					<BaseText :content="tab.name" />
 				</NuxtLink>
-                <Avatar
-					size="lg"
-				/>
+                </div>
+                <Avatar />
 			</div>
         <div class="mdlg:hidden flex items-center justify-between w-full py-2 px-4">
                 <span />
@@ -32,9 +31,7 @@
 					:content="title"
                     bold
 				/>
-                <Avatar
-					size="lg"
-				/>
+                <Avatar />
 			</div>
     </div>
 </template>

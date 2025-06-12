@@ -11,8 +11,9 @@
       >
        <Menu class="w-8 h-8 text-primaryBlue" />
       </button>
-      <nav class="mx-auto">
+      <nav class="flex items-center gap-8 text-lg">
         <a href="#why-mobi-baby">Why MobiBaby?</a>
+        <a href="#join-us">Join us</a>
       </nav>
     <BaseSelect :placeholder="languages[0]" :options="languages" className="hidden mdlg:inline-flex w-40" />
       <!-- Slide-in Mobile Nav -->
@@ -37,6 +38,7 @@
             </button>
             <nav class="flex flex-col gap-6 mt-8">
               <a href="#why-mobi-baby" class="text-primaryBlue font-semibold" @click="isNavOpen = false">Why MobiBaby?</a>
+              <a href="#join-us">Join us</a>
                <BaseSelect :placeholder="languages[0]" :options="languages" className="w-40" />
             </nav>
           </div>
