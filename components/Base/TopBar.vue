@@ -31,7 +31,7 @@
 					:content="title"
                     bold
 				/>
-                <Avatar />
+                <Avatar size="lg" />
 			</div>
     </div>
 </template>

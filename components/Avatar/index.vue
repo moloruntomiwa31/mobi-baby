@@ -4,6 +4,8 @@
       :class="[
         size === 'lg'
           ? 'w-12 h-12'
+          : size === 'sm'
+          ? 'w-8 h-8'
           : size === 'xl'
           ? 'w-16 h-16'
           : size === '2xl'
@@ -23,17 +25,17 @@
       :alt
       :class="['rounded-full object-cover w-full h-full', customClass]"
     />
-    <User v-else class="w-8 h-8 text-white" />
+    <User v-else class="w-6 h-6 text-white" />
       </div>
   </template>
   
   <script setup lang="ts">
     import {User} from "lucide-vue-next"
     const {
-      size = "lg",
+      size = "sm",
       customClass = "",
     } = defineProps<{
-      size?: "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
+      size?: "sm" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
       customClass?: string | Record<string, boolean>;
         src?: string;
       alt?: string;

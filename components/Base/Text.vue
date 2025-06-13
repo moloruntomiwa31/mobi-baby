@@ -52,7 +52,7 @@ const fontClass = computed(() =>
 const computedClass = computed(() => [
   sizeClasses[size],
   fontClass.value,
-  clamp ? "line-clamp-3" : "",
+  clamp ? "line-clamp-1" : "",
   className,
 ]);
 </script>
