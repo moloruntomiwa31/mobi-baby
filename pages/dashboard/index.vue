@@ -81,8 +81,14 @@
     </NuxtLink>
   </template>
 </div>
-
-<MaterialCard :isRoute="true" to="/home" />
+  <template v-for="m in materials" :key="m.title">
+    <div class="flex flex-col items-start gap-2">
+      <BaseText :content="m.title" size="sm" bold />
+      <div class="flex items-center gap-4 overflow-x-auto flex-nowrap whitespace-nowrap no-scrollbar w-full">
+        <MaterialCard v-for="data in m.list" :key="data.description" :m="data" :wrapped="true" />
+     </div>
+    </div>
+  </template>
   </MobileLayout>
 </template>
 
@@ -99,7 +105,7 @@ const babyInfo = [
   },
   {
     title: 'Breathing Rate',
-    value: '30 /min',
+    value: '30/min',
     bgColor: 'bg-primaryPurple',
   },
   {
@@ -158,4 +164,47 @@ const tasks = [
     description: 'Schedule reminders for important tasks.'
   },
 ]
+
+const materialList = computed(() => {
+  return [
+  {
+    title: 'Baby Care Guide',
+    description: 'A comprehensive guide to caring for your newborn.',
+    image: '/images/maternal.jpg',
+    link: '/resources/baby-care-guide',
+    user: {name: 'Dr. John Doe', isVerified: true}
+  },
+  {
+    title: 'Feeding Schedule',
+    description: 'Sample feeding schedules for different age groups.',
+    image: '/images/maternal.jpg',
+    link: '/resources/feeding-schedule',
+    user: {name: 'Dr. John Doe', isVerified: false}
+  },
+  {
+    title: 'Sleep Tips',
+    description: 'Tips to help your baby sleep better.',
+    image: '/images/maternal.jpg',
+    link: '/resources/sleep-tips',
+    user: {name: 'Dr. John Doe', isVerified: true}
+  }
+]
+})
+
+const materials = computed(() => {
+  return [
+    {
+      title: 'Suggested for you',
+      list: materialList.value
+    },
+    {
+      title: 'Popular Resources',
+      list: materialList.value
+    },
+    {
+      title: 'New Arrivals',
+      list: materialList.value
+    }
+  ]
+})
 </script>
