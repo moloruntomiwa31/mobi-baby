@@ -39,7 +39,7 @@
     },
     {
       name: 'Chat',
-      path: '#',
+      path: '/dashboard/chat',
       icon: MessageSquareText
     },
     {

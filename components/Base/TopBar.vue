@@ -50,7 +50,7 @@ const tabs: {name: string, path: string, icon: unknown}[] = [
     },
     {
         name: 'Chat',
-        path: "#",
+        path: "/dashboard/chat",
         icon: MessageSquareText
     },
     {

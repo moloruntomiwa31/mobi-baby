@@ -1,6 +1,6 @@
 <template>
   <!-- Desktop Page -->
-  <FullLayout title="Dashboard" :hide="{ top: false, left: false, middle: false, right: true, bottom: false }" class="hidden mdlg:block">
+  <FullLayout title="Dashboard" :hide="{ top: false, left: false, middle: false, right: true, bottom: false }">
     <template #left>
       <div class="bg-gray-100 p-4 rounded-xl">
         <h2 class="text-lg font-semibold mb-2">Sidebar</h2>
@@ -35,7 +35,7 @@
   </FullLayout>
 
   <!-- Mobile -->
-  <MobileLayout title="Dashboard" class="mdlg:hidden">
+  <MobileLayout title="Dashboard">
     <div class="flex flex-col items-start gap-2">
   <BaseText content="Complete your tasks" size="sm" bold />
   <div class="flex items-center gap-4 overflow-x-auto flex-nowrap whitespace-nowrap no-scrollbar w-full">
