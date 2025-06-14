@@ -1,53 +1,18 @@
 <template>
   <!-- Desktop Page -->
-  <FullLayout title="Dashboard" :hide="{ top: false, left: false, middle: false, right: true, bottom: false }" class="hidden mdlg:block">
-    <template #left>
-      <div class="bg-gray-100 p-4 rounded-xl">
-        <h2 class="text-lg font-semibold mb-2">Sidebar</h2>
-        <ul class="space-y-1 text-sm">
-          <li><a href="#" class="text-blue-600 hover:underline">Home</a></li>
-          <li><a href="#" class="text-blue-600 hover:underline">Profile</a></li>
-          <li><a href="#" class="text-blue-600 hover:underline">Settings</a></li>
-        </ul>
-      </div>
-    </template>
-
-    <template #middle>
-      <div class="bg-white p-4 rounded-xl">
-        <h1 class="text-xl font-bold mb-4">Welcome to the Dashboard</h1>
-        <p class="text-gray-700">
-          This is the main content area. You can add charts, tables, or anything here.
-          lorem10000
-        </p>
-      </div>
-    </template>
-
-    <!-- <template #right>
-      <div class="bg-gray-50 p-4 rounded-xl shadow">
-        <h2 class="text-lg font-semibold mb-2">Notifications</h2>
-        <ul class="text-sm list-disc list-inside text-gray-700">
-          <li>You have 3 new messages</li>
-          <li>Your subscription is active</li>
-          <li>System update available</li>
-        </ul>
-      </div>
-    </template> -->
-  </FullLayout>
-
-  <!-- Mobile -->
-  <MobileLayout title="Dashboard" class="mdlg:hidden">
-    <div class="flex flex-col items-start gap-2">
+<DashboardLayout>
+  <div class="flex flex-col items-start gap-2">
   <BaseText content="Complete your tasks" size="sm" bold />
   <div class="flex items-center gap-4 overflow-x-auto flex-nowrap whitespace-nowrap no-scrollbar w-full">
     <button
       v-for="(task, i) in tasks"
       :key="i"
-      class="flex items-center gap-2 px-3 py-2 bg-gray w-[375px] h-[70px] rounded-md"
+      class="flex items-center gap-2 px-3 py-2 bg-gray w-[380px] h-[70px] rounded-md"
     >
       <component :is="task.icon" class="w-8 h-8" :class="task.color" />
       <div class="flex flex-col items-start">
-        <BaseText bold>{{ task.label }}</BaseText>
-        <BaseText as="span" size="sm">{{ task.description }}</BaseText>
+        <BaseText bold size="sm">{{ task.label }}</BaseText>
+        <BaseText as="span" size="xs" clamp>{{ task.description }}</BaseText>
       </div>
     </button>
   </div>
@@ -60,17 +25,17 @@
     >
       <div class="flex flex-col gap-4 items-center justify-center text-center">
         <BaseText :content="details.title" />
-        <BaseText :content="details.value" as="h3" size="xl" />
+        <BaseText :content="details.value" as="h3" size="lg" />
       </div>
     </div>
     <NuxtLink
       to="#"
       v-if="idx === 1"
-      class="col-span-2 bg-gray rounded-md flex items-center justify-center"
+      class="col-span-2 bg-gray/80 rounded-md flex items-center justify-center"
     >
     <div class="flex items-center justify-between w-full p-5 relative">
      <div>
-      <BaseText content="Ask Mobi" as="h3" size="2xl" />
+      <BaseText content="Ask Mobi" as="h3" size="xl" />
       <BaseText content="How can I help you today?" />
      </div>
      <div>
@@ -85,15 +50,16 @@
     <div class="flex flex-col items-start gap-2">
       <BaseText :content="m.title" size="sm" bold />
       <div class="flex items-center gap-4 overflow-x-auto flex-nowrap whitespace-nowrap no-scrollbar w-full">
-        <MaterialCard v-for="data in m.list" :key="data.description" :m="data" :wrapped="true" />
+        <MaterialCard v-for="data in m.list" :key="data.description" :wrapped="isMobile ? true : false" :m="data" />
      </div>
     </div>
   </template>
-  </MobileLayout>
+</DashboardLayout>
 </template>
 
 <script setup lang="ts">
 import { Milk, Baby, Thermometer, Moon, Syringe, StickyNote, AlarmClock } from 'lucide-vue-next'
+const {isMobile} = useScreen()
 useHead({
   title: 'Dashboard',
 })

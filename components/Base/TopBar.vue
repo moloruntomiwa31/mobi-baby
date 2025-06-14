@@ -1,5 +1,5 @@
 <template>
-    <div class="flex items-center justify-between gap-2 sticky top-0 bg-gray">
+    <div class="flex items-center justify-between gap-2 sticky top-0 bg-gray z-50">
         <div class="hidden gap-5 items-center justify-between flex-auto mdlg:flex px-8">
 				<NuxtLink
                 	to="/dashboard"
