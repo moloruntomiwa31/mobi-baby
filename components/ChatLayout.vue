@@ -2,7 +2,7 @@
     <FullLayout title="Chat" :hide="{ top: false, left: false, middle: false, right: false, bottom: false }">
       <!-- Left: Chat History -->
       <template #left>
-        <div class="h-full bg-primaryAqua shadow-sm rounded-lg p-4 flex flex-col gap-4">
+        <div class="bg-primaryAqua shadow-sm rounded-lg p-4 flex flex-col gap-4">
           <BaseText content="Chat History" size="md" bold class="text-white" />
           <ul class="flex flex-col gap-3">
             <li class="bg-white text-primaryBlue p-2 rounded-lg flex items-center gap-1"><SquarePlus class="w-4 h-4" /> New chat</li>
@@ -18,7 +18,7 @@
   
       <!-- Right: Chat Options -->
       <template #right>
-  <div class="h-full max-h-full bg-gray-50 shadow-sm rounded-lg p-4 flex flex-col gap-4 overflow-y-auto">
+  <div class="bg-gray-50 shadow-sm rounded-lg p-4 flex flex-col gap-4">
     <!-- Bot Info Card -->
     <div class="bg-white p-4 rounded-lg flex flex-col items-center gap-2 shadow">
       <img src="/images/bot.png" alt="AI BOT" class="w-14 h-14" />
@@ -46,7 +46,6 @@
     </Button>
   </div>
 </template>
-  
     </FullLayout>
 
     <MobileLayout title="Chat" class="mdlg:hidden">

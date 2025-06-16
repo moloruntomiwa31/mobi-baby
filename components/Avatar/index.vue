@@ -6,6 +6,8 @@
           ? 'w-12 h-12'
           : size === 'sm'
           ? 'w-8 h-8'
+          : size === 'xs'
+          ? 'w-6 h-6'
           : size === 'xl'
           ? 'w-16 h-16'
           : size === '2xl'
@@ -25,7 +27,7 @@
       :alt
       :class="['rounded-full object-cover w-full h-full', customClass]"
     />
-    <User v-else class="w-6 h-6 text-white" />
+    <User v-else class="w-1/2 h-1/2 text-white" />
       </div>
   </template>
   
@@ -35,7 +37,7 @@
       size = "sm",
       customClass = "",
     } = defineProps<{
-      size?: "sm" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
+      size?: "xs"| "sm" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
       customClass?: string | Record<string, boolean>;
         src?: string;
       alt?: string;

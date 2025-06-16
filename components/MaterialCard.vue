@@ -1,11 +1,17 @@
 <template>
     <BaseCard :as="isRoute ? 'nuxt-link' : as" :wrapped  :imageSrc>
-        <BaseText :content="m.title" size="md" as="h3" />
+        <BaseText :content="m.title" as="h3" />
         <BaseText :content="m.description" size="xs" clamp />
+        <div v-if="m.price.amount > 0" class="flex items-center gap-1 text-primaryAqua">
+            <BaseText content="Price" size="sm" />
+            <span  class="size-[5px] rounded-full bg-primaryAqua" />
+            <BaseText :content="`${m.price.currency}${m.price.amount}`" bold size="sm" />
+        </div>
+        <BaseText v-else content="Free" size="sm" className="text-primaryPink" />
         <div class="flex items-center gap-2">
-            <Avatar />
-            <BaseText :content="m.user.name" />
-            <BadgeCheck v-if="m.user.isVerified" class="fill-blue-500" />
+            <Avatar size="xs" />
+            <BaseText :content="m.user.name" size="xs" />
+            <BadgeCheck v-if="m.user.isVerified" class="w-4 fill-blue-400 stroke-white" />
         </div>
     </BaseCard>
 </template>

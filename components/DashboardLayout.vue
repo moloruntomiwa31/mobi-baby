@@ -7,7 +7,7 @@
             <div class="flex flex-col items-start">
             <BaseText content="Aminat" as="h2" size="md" bold />
             <BaseText content="Patient" size="xs" />
-            <BaseText content="View Profile" size="sm" className="text-primaryPink" />
+            <BaseText content="See Profile" size="sm" className="text-primaryAqua" />
             </div>
     </div>
       </div>

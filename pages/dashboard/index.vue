@@ -29,13 +29,13 @@
       </div>
     </div>
     <NuxtLink
-      to="#"
+      to="/dashboard/chat"
       v-if="idx === 1"
       class="col-span-2 bg-gray/80 rounded-md flex items-center justify-center"
     >
     <div class="flex items-center justify-between w-full p-5 relative">
      <div>
-      <BaseText content="Ask Mobi" as="h3" size="xl" />
+      <BaseText content="Ask Mobi" as="h3" size="lg" />
       <BaseText content="How can I help you today?" />
      </div>
      <div>
@@ -47,11 +47,15 @@
   </template>
 </div>
   <template v-for="m in materials" :key="m.title">
-    <div class="flex flex-col items-start gap-2">
-      <BaseText :content="m.title" size="sm" bold />
-      <div class="flex items-center gap-4 overflow-x-auto flex-nowrap whitespace-nowrap no-scrollbar w-full">
+    <div class="flex flex-col items-start gap-2 shadow p-2 bg-primaryGray/10 rounded-md">
+      <div class="flex items-center justify-between w-full">
+        <BaseText :content="m.title" size="sm" bold />
+        <BaseText v-if="isMobile" content="See all" class="text-primaryAqua" />
+      </div>
+      <div class="flex mdlg:flex-col items-center gap-4 overflow-x-auto flex-nowrap whitespace-nowrap no-scrollbar w-full">
         <MaterialCard v-for="data in m.list" :key="data.description" :wrapped="isMobile ? true : false" :m="data" />
      </div>
+      <BaseText v-if="!isMobile" content="See all" class="text-primaryAqua" />
     </div>
   </template>
 </DashboardLayout>
@@ -138,21 +142,24 @@ const materialList = computed(() => {
     description: 'A comprehensive guide to caring for your newborn.',
     image: '/images/maternal.jpg',
     link: '/resources/baby-care-guide',
-    user: {name: 'Dr. John Doe', isVerified: true}
+    user: {name: 'Dr. John Doe', isVerified: true},
+    price: {amount: 0, currency: 'NGN'}
   },
   {
     title: 'Feeding Schedule',
     description: 'Sample feeding schedules for different age groups.',
     image: '/images/maternal.jpg',
     link: '/resources/feeding-schedule',
-    user: {name: 'Dr. John Doe', isVerified: false}
+    user: {name: 'Dr. John Doe', isVerified: false},
+    price: {amount: 1000, currency: 'NGN'}
   },
   {
     title: 'Sleep Tips',
     description: 'Tips to help your baby sleep better.',
     image: '/images/maternal.jpg',
     link: '/resources/sleep-tips',
-    user: {name: 'Dr. John Doe', isVerified: true}
+    user: {name: 'Dr. John Doe', isVerified: true},
+    price: {amount: 1500, currency: 'NGN'}
   }
 ]
 })

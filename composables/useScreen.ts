@@ -6,6 +6,7 @@ export const useScreen = () => {
 		md: 768,
 		mdlg: 1000,
 		lg: 1280,
+		ssrWidth: 768, // Default width for SSR
 	});
 
 	const isMobile = breakpoints.smaller("md"); // <768px

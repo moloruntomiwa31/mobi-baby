@@ -1,9 +1,9 @@
 <template>
-<div class="mdlg:block hidden">
+<div class="mdlg:block hidden overflow-y-clip">
   <BaseTopBar v-if="!hide.top"  :title="title" />
   
   <!-- Main content area -->
-  <div class="grow h-full flex flex-col mdlg:flex-row mdlg:items-start gap-5 pt-4 mdlg:gap-8 px-4">
+  <div class="flex flex-col mdlg:flex-row mdlg:items-start gap-5 pt-4 mdlg:gap-8 px-4">
     <div v-if="!hide.left" class="mdlg:w-1/4">
       <slot name="left" />
     </div>

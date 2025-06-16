@@ -1,7 +1,7 @@
 <template>
 	<component
 		:is="as"
-		class="bg-gray shadow-md text-primaryBlue flex gap-2 p-3 items-center shrink-0 rounded-md cursor-pointer"
+		class="bg-gray shadow text-primaryBlue flex gap-2 p-3 items-center shrink-0 rounded-md cursor-pointer"
 		:class="wrapped ? 'flex-col w-[240px]' : 'flex-row w-full'"
 	>
 		<img

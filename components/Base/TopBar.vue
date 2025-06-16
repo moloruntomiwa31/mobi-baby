@@ -24,11 +24,12 @@
                 </div>
                 <Avatar />
 			</div>
-        <div class="mdlg:hidden flex items-center justify-between w-full py-2 px-4">
-                <span />
+        <div class="mdlg:hidden flex items-center justify-between w-full py-2 pr-4">
+                <Logo class="h-8 w-1/3" />
 				<BaseText
 					v-if="title"
 					:content="title"
+                    className="w-1/3"
                     bold
 				/>
                 <Avatar size="lg" />
