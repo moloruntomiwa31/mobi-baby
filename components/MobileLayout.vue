@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 const {hide = {top: false, bottom: false}} = defineProps<{
-  hide?: { top: boolean; bottom: boolean };
+  hide?: Partial<{ top: boolean; bottom: boolean }>;
   title?: string;
 }>();
 </script>

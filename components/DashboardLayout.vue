@@ -1,5 +1,5 @@
 <template>
-  <FullLayout title="Dashboard" :hide="{ top: false, left: false, middle: false, right: true, bottom: false }">
+  <FullLayout title="Dashboard" :hide="{ right: true }">
     <template #left>
       <div class="bg-primaryGray/10 p-4 rounded-xl">
     <div class="flex items-center gap-3">

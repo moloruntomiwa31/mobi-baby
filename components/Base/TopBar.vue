@@ -66,7 +66,7 @@ const tabs: {name: string, path: string, icon: unknown}[] = [
     },
     {
         name: "Settings",
-        path: "#",
+        path: "/settings",
         icon: Settings
     }
 ]

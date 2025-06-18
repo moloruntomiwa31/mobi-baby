@@ -1,7 +1,7 @@
 <template>
   <div>
-      <!-- <DashboardPatient /> -->
-      <DashboardMedic />
+      <DashboardPatient />
+      <!-- <DashboardMedic /> -->
   </div>
 </template>
 

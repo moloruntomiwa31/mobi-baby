@@ -22,8 +22,10 @@
   </template>   
   
 <script setup lang="ts">
-const {hide = {top: false, left: true, middle: false, right: true, bottom: false}, title = ''} = defineProps<{
-    hide?: {top: boolean, left: boolean, middle: boolean, right: boolean, bottom: boolean},
+const props = defineProps<{
+    hide?: Partial<{top: boolean, left: boolean, middle: boolean, right: boolean, bottom: boolean}>,
     title?: string,
 }>()
+
+const hide = props.hide ?? {};
 </script>
