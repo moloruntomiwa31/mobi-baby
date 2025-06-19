@@ -11,7 +11,7 @@
 				'w-8 mdlg:w-12 h-0.5 flex-auto',
 				{
 				  'bg-primaryGreen': option.done,
-				  'bg-primaryPurple': tab === option.id && !option.done,
+				  'bg-primaryAqua': tab === option.id && !option.done,
 				  'bg-primaryGray': !option.done && tab !== option.id,
 				},
 			  ]"
@@ -21,7 +21,7 @@
 				'flex items-center gap-2',
 				{
 				  'text-primaryGreen': option.done,
-				  'text-primaryPurple': tab === option.id && !option.done,
+				  'text-primaryAqua': tab === option.id && !option.done,
 				  'text-primaryGray': !option.done && tab !== option.id,
 				},
 			  ]"
