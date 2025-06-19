@@ -1,6 +1,6 @@
 <template>
     <SettingsLayout>
-      <div class="flex flex-col items-center justify-center mt-12 mdlg:mt-6 gap-6 mdlg:gap-4 h-full">
+      <div class="flex flex-col items-center justify-center mt-12 gap-6 mdlg:gap-4 h-full">
         <div class="relative bg-gray rounded-xl w-full max-w-sm mdlg:max-w-md flex flex-col items-center pt-16 pb-6">
           <Avatar
             :size="isDesktop ? '2xl' : '4xl'"
@@ -20,26 +20,21 @@
           </div>
         </div>
   
-        <div v-if="pickDate" class="bg-gray rounded-xl w-full max-w-sm mdlg:max-w-md p-4">
+      <Transition name="fade">
+        <div v-if="pickDate" class="bg-gray rounded-xl w-full max-w-sm mdlg:max-w-md px-4 py-2">
           <DatePicker class="w-full" />
         </div>
+      </Transition>
   
         <div class="bg-gray rounded-xl w-full max-w-sm mdlg:max-w-md p-4">
           <div class="flex items-center justify-between">
             <BaseText content="Language" size="sm" bold />
-            <div class="flex items-center gap-2">
-              <BaseText content="English" class="text-gray-600" />
-              <ChevronRight class="w-5 h-5" />
-            </div>
-          </div>
-        </div>
-  
-        <div class="bg-gray rounded-xl w-full max-w-sm mdlg:max-w-md p-4">
-          <BaseSelect
+            <BaseSelect
             :placeholder="languages[0]"
             :options="languages"
             class="w-full"
-          />
+            />
+          </div>
         </div>
   
         <BaseText class="text-primaryAqua" size="sm">Need help or support?</BaseText>
@@ -63,4 +58,16 @@
     "English", "Yoruba", "Igbo", "Hausa"
   ];
   </script>
+
+  <style scoped>
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.3s ease-in;
+  }
+  
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  } 
+</style>
   
