@@ -1,5 +1,5 @@
 <template>
-    <FullLayout title="Chat" :hide="{ top: false, left: false, middle: false, right: false, bottom: false }">
+    <FullLayout title="Chat">
       <!-- Left: Chat History -->
       <template #left>
         <div class="bg-primaryAqua shadow-sm rounded-lg p-4 flex flex-col gap-4">
@@ -48,7 +48,7 @@
 </template>
     </FullLayout>
 
-    <MobileLayout title="Chat" class="mdlg:hidden">
+    <MobileLayout title="Chat">
         <slot />
     </MobileLayout>
   </template>

@@ -54,7 +54,7 @@
     },
     {
       name: 'Settings',
-      path: '#',
+      path: '/settings',
       icon: Settings
     }
   ]
