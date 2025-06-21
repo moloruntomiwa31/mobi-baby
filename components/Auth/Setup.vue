@@ -1,5 +1,5 @@
 <template>
-	<div class="h-screen flex items-center justify-center">
+	<div class="h-screen flex items-center justify-center" @submit.prevent="onSubmit">
 	  <form class="bg-white w-4/5 max-w-5xl px-8 py-6 rounded-xl shadow-lg">
   
 		<!-- Progress Bar -->
@@ -81,8 +81,8 @@
 				<Input id="email" type="email" placeholder="aminat123@gmail.com" class="bg-gray p-4 rounded-md w-full" />
 			  </div>
 			  <div class="flex flex-col gap-2">
-				<Label for="location">Location</Label>
-				<Input id="location" type="text" placeholder="Location" class="bg-gray p-4 rounded-md w-full" />
+				<Label for="phone">Phone Number</Label>
+				<Input id="phone" type="tel" placeholder="+234 812 345 6789" class="bg-gray p-4 rounded-md w-full" />
 			  </div>
 			</template>
   
@@ -111,7 +111,8 @@
 			</template>
   
 			<template v-if="tab === 'type' && type === 'parent'">
-			  <div class="flex flex-col gap-2">
+			 <div class="grid md:grid-cols-2 gap-6 md:gap-2">
+				<div class="flex flex-col gap-2">
 				<Label for="vaccination">Has your baby had their first vaccination?</Label>
 				<BaseSelect
 				  id="vaccination"
@@ -119,12 +120,22 @@
 				  className="!bg-gray rounded-md !border-none !p-4 w-full"
 				/>
 			  </div>
+			  <div class="flex flex-col gap-2">
+				<Label for="vaccination">What vaccination has your baby received?</Label>
+				<BaseSelect
+				  id="vaccination"
+				  multiple
+				  :options="['BCG', 'Polio', 'Hepatitis B', 'DTP', 'MMR', 'None', 'Other']"
+				  className="!bg-gray rounded-md !border-none !p-4 w-full"
+				/>
+			  </div>
+			 </div>
 		<div class="grid md:grid-cols-2 gap-6 md:gap-2 w-full">
 			<div class="flex flex-col gap-2">
 				<Label for="feeding">How's your baby currently being fed?</Label>
 				<BaseSelect
 				  id="feeding"
-				  :options="['Breastfeeding', 'Formula Feeding', 'Mixed Feeding']"
+				  :options="['Breast Feeding', 'Formula Feeding', 'Mixed Feeding']"
 				  className="!bg-gray rounded-md !border-none !p-4 w-full"
 				/>
 			  </div>
@@ -145,7 +156,8 @@
 				<Label for="health">Any current health concern?</Label>
 				<BaseSelect
 				  id="health"
-				  :options="['Fever', 'Cough', 'Cold', 'Rash', 'Diarrhea', 'Jaundice', 'None']"
+				  multiple
+				  :options="['Fever', 'Cough', 'Cold', 'Rash', 'Diarrhea', 'Jaundice', 'None', 'Other']"
 				  className="!bg-gray rounded-md !border-none !p-4 w-full"
 				/>
 			  </div>
@@ -178,9 +190,29 @@
   
 		<!-- Navigation Buttons -->
 		<div class="w-full flex justify-between mt-6">
-		  <Button variant="secondary" :disabled="isFirstStep" @click.prevent="prevStep">Back</Button>
-		  <Button :disabled="isLastStep" @click.prevent="nextStep">Next</Button>
-		</div>
+  <Button variant="secondary" :disabled="isFirstStep" @click.prevent="prevStep">Back</Button>
+  <Button
+	variant="blue"
+    v-if="isLastStep && !isLastStepDirty"
+    @click.prevent="$router.push('/dashboard')"
+  >
+    Skip
+  </Button>
+  <Button
+  variant="yellow"
+    v-else-if="isLastStep && isLastStepDirty"
+    type="submit"
+  >
+    Submit
+  </Button>
+  <Button
+    v-else
+    :disabled="isLastStep"
+    @click.prevent="nextStep"
+  >
+    Next
+  </Button>
+</div>
 	  </form>
 	</div>
   </template>
@@ -217,6 +249,22 @@
 	if (!isFirstStep.value) {
 	  tab.value = visibleOptions.value[currentIndex.value - 1].id as Tab
 	}
+  }
+
+  const isLastStepDirty = ref(false)
+
+	watch(tab, () => {
+	if (isLastStep.value) {
+		isLastStepDirty.value = false
+	}
+	})
+
+	function markLastStepDirty() {
+	if (isLastStep.value) isLastStepDirty.value = true
+	}
+
+  const onSubmit = () => {
+	navigateTo('/dashboard')
   }
 
   const yearsOfExperience = ['1-2 years', '3-5 years', '6-10 years', '10+ years']

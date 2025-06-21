@@ -49,14 +49,9 @@
     },
     {
       name: 'Bookings',
-      path: '#',
+      path: "/dashboard/bookings",
       icon: NotepadText
     },
-    {
-      name: 'Settings',
-      path: '/settings',
-      icon: Settings
-    }
   ]
   </script>
   

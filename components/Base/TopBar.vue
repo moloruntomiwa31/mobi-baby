@@ -7,7 +7,7 @@
 					<Logo />
 				</NuxtLink>
 
-				<div class="flex items-center justify-center gap-4">
+				<div class="flex items-center justify-center gap-8">
                     <NuxtLink
 					v-for="tab in tabs"
 					:key="tab.name"
@@ -19,13 +19,13 @@
 						:is="tab.icon"
 						class="h-[18px]"
 					/>
-					<BaseText :content="tab.name" />
+					<BaseText :content="tab.name" size="sm" />
 				</NuxtLink>
                 </div>
-                <Avatar />
+                <Avatar size="md" clickable />
 			</div>
         <div class="mdlg:hidden flex items-center justify-between w-full py-2 pr-4">
-                <Logo class="h-8 w-1/3" />
+                <Logo class="h-8 w-1/3 md:w-1/4" />
 				<BaseText
 					v-if="title"
 					:content="title"
@@ -61,13 +61,8 @@ const tabs: {name: string, path: string, icon: unknown}[] = [
     },
     {
         name: "Bookings",
-        path: "#",
+        path: "/dashboard/bookings",
         icon: NotepadText
     },
-    {
-        name: "Settings",
-        path: "/settings",
-        icon: Settings
-    }
 ]
 </script>

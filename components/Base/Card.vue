@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 const { as="div", wrapped = false} = defineProps<{
-	as?: string
+	as?: string | object
 	imageSrc?: string
     wrapped?: boolean
 }>()

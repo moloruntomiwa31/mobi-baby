@@ -1,5 +1,5 @@
 <template>
-    <BaseCard :as="isRoute ? 'nuxt-link' : as" :wrapped  :imageSrc>
+    <BaseCard :as="isRoute ? NuxtLink : as" :wrapped  :imageSrc>
         <BaseText :content="m.title" as="h3" />
         <BaseText :content="m.description" size="xs" clamp />
         <div v-if="m.price.amount > 0" class="flex items-center gap-1 text-primaryAqua">
@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+import { NuxtLink } from '#components';
 import { BadgeCheck } from 'lucide-vue-next';
 const {isRoute = false, imageSrc = '/images/maternal.jpg', as = 'div'} = defineProps<{
     m: any;

@@ -1,6 +1,6 @@
 <template>
     <SettingsLayout>
-      <div class="flex flex-col items-center justify-center mt-12 gap-6 mdlg:gap-4 h-full">
+      <div class="flex flex-col items-center justify-center gap-6 mdlg:gap-4 h-full">
         <div class="relative bg-gray rounded-xl w-full max-w-sm mdlg:max-w-md flex flex-col items-center pt-16 pb-6">
           <Avatar
             :size="isDesktop ? '2xl' : '4xl'"

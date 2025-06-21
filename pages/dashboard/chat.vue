@@ -6,16 +6,17 @@
             <div class="self-start bg-gray text-gray-800 p-3 rounded-tl-xl rounded-tr-xl rounded-br-xl max-w-[70%]">
               Hello! How can I assist you today?
             </div>
-            <div class="self-end bg-primaryAqua text-primaryBlue p-3 rounded-tl-xl rounded-tr-xl rounded-bl-xl max-w-[70%]">
+            <div class="self-end bg-primaryAqua text-white p-3 rounded-tl-xl rounded-tr-xl rounded-bl-xl max-w-[70%]">
               I have a headache and I'm unsure if it's serious.
             </div>
           </div>
   
           <!-- Chat input -->
           <div class="py-4 px-2 border-t flex items-center justify-between gap-2 w-full">
-            <Input
+            <input
+              type="text"
               placeholder="Type a message..."
-              class="flex-1 rounded-full min-w-full"
+              class="flex-1 rounded-full p-2 bg-gray focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]"
             />
             <div>
                 <button class="bg-primaryAqua p-2 rounded-full">
