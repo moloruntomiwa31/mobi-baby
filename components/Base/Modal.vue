@@ -12,7 +12,6 @@
     </Transition>
 </template>
   
-
 <script setup lang="ts">
 import { CircleX } from 'lucide-vue-next';
 defineProps<{

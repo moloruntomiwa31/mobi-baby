@@ -124,10 +124,8 @@
     </div>
   </div>
     </div>
-
     </DashboardLayout>
 </template>
-
 
 <script setup lang="ts">
 import { type DateValue, getLocalTimeZone, today } from '@internationalized/date'
@@ -199,5 +197,4 @@ const statusColor: Record<string, string> = {
   Busy: 'bg-primaryYellow',
   Offline: 'bg-primaryGray',
 }
-
 </script>
