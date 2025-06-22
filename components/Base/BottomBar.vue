@@ -43,7 +43,7 @@
       icon: MessageSquareText
     },
     {
-      name: 'MarketPlace',
+      name: 'Feeds',
       path: '#',
       icon: Store
     },

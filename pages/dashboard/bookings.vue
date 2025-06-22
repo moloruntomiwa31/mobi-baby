@@ -197,7 +197,7 @@ const medicalPersonnel = [
 const statusColor: Record<string, string> = {
   Available: 'bg-primaryGreen',
   Busy: 'bg-primaryYellow',
-  Offline: 'bg-primaryGray/50',
+  Offline: 'bg-primaryGray',
 }
 
 </script>

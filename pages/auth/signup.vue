@@ -69,5 +69,6 @@
   definePageMeta({
     layout: "auth",
   })
+  useHead({title: 'Sign Up'})
   </script>
   

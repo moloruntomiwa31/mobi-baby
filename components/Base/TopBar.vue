@@ -32,16 +32,19 @@
                     className="w-1/3"
                     bold
 				/>
-                <Avatar size="lg" />
+                <Avatar size="lg" @click="openMobileSidebar = true" />
 			</div>
+            <MobileSidebar :show="openMobileSidebar" :onClose="() => openMobileSidebar = false" />
     </div>
 </template>
 
 <script setup lang="ts">
-import {LayoutDashboard, MessageSquareText, Store, NotepadText, Settings} from "lucide-vue-next";
+import {LayoutDashboard, MessageSquareText, Store, NotepadText} from "lucide-vue-next";
 defineProps<{
     title?: string;
 }>(); 
+
+const openMobileSidebar = ref(false);
 
 const tabs: {name: string, path: string, icon: unknown}[] = [
     {
@@ -55,7 +58,7 @@ const tabs: {name: string, path: string, icon: unknown}[] = [
         icon: MessageSquareText
     },
     {
-        name: "MarketPlace",
+        name: "Feeds",
         path: "#",  
         icon: Store
     },

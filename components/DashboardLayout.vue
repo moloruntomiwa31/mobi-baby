@@ -6,7 +6,7 @@
           <div class="flex items-center gap-4">
             <Avatar size="2xl" clickable />
             <div>
-              <BaseText content="Aminat" as="h2" size="md" bold />
+              <BaseText content="Aminat Shekinat" as="h2" size="md" bold  clamp/>
               <BaseText content="Patient" size="xs" class="text-gray-500" />
               <BaseText content="See Profile" size="sm" class="text-primaryAqua cursor-pointer" />
             </div>

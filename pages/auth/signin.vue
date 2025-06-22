@@ -34,6 +34,10 @@
           <Input id="password" type="password" placeholder="••••••••" />
         </div>
 
+        <div class="flex items-center justify-end">
+          <BaseText size="xs" class="text-primaryAqua">Forgot Password?</BaseText>
+        </div>
+
         <Button class="w-full">Sign in</Button>
       </div>
 
@@ -52,5 +56,6 @@
   definePageMeta({
     layout: "auth",
   })
+  useHead({title: 'Sign In'})
   </script>
   

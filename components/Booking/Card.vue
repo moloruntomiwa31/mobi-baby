@@ -102,7 +102,7 @@ const statusColors: Record<string, string> = {
   Confirmed: 'text-primaryGreen bg-primaryGreen',
   Pending: 'text-primaryYellow bg-primaryYellow',
   Scheduled: 'text-primaryPink bg-primaryPink',
-  Completed: 'text-primaryGray/50 bg-primaryGray/50',
+  Completed: 'text-primaryGray bg-primaryGray',
   Cancelled: 'text-primaryRed bg-primaryRed'
 }
 </script>
