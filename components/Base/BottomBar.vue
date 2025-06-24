@@ -26,7 +26,6 @@
     MessageSquareText,
     Store,
     NotepadText,
-    Settings
   } from 'lucide-vue-next'
   
   const route = useRoute()
@@ -44,7 +43,7 @@
     },
     {
       name: 'Feeds',
-      path: '#',
+      path: '/feeds',
       icon: Store
     },
     {

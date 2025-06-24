@@ -1,7 +1,5 @@
 <template>
-    <DashboardLayout></DashboardLayout>
+	<DashboardLayout></DashboardLayout>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
