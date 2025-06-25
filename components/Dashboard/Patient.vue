@@ -91,9 +91,6 @@
 		AlarmClock,
 	} from "lucide-vue-next";
 	const { isMobile } = useScreen();
-	useHead({
-		title: "Dashboard",
-	});
 	const babyInfo = [
 		{
 			title: "Temperature",

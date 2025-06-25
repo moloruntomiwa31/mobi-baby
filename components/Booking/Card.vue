@@ -22,9 +22,6 @@
 								<BaseText size="xs" class="text-gray-500">
 									{{ item.time }}
 								</BaseText>
-								<BaseText size="xs" class="text-gray-500">
-									{{ item.location }}
-								</BaseText>
 								<p class="text-xs text-gray-400 italic">
 									Reason: {{ item.reason }}
 								</p>
@@ -50,18 +47,17 @@
 			</div>
 		</div>
 
-		<div v-else class="text-center text-gray-500">
-			<img
-				src="/images/empty-calendar.jpg"
-				alt="Empty Calendar"
-				class="mx-auto mb-4 w-40 h-40"
-			/>
-			<BaseText content="No bookings available" size="sm" />
-		</div>
+		<BaseEmptyState
+			v-else
+			title="No bookings available"
+			description="You have no upcoming or past appointments."
+			:icon="CalendarDays"
+		/>
 	</div>
 </template>
 
 <script setup lang="ts">
+	import { CalendarDays } from "lucide-vue-next";
 	const bookings = [
 		{
 			title: "Upcoming Appointments",
@@ -69,14 +65,12 @@
 				{
 					date: "June 26, 2025",
 					time: "10:30 AM",
-					location: "General Hospital, Kano",
 					status: "Confirmed",
 					reason: "Routine antenatal check-up",
 				},
 				{
 					date: "July 1, 2025",
 					time: "2:00 PM",
-					location: "City Clinic, Lagos",
 					status: "Pending",
 					reason: "Follow-up consultation",
 				},
@@ -88,14 +82,12 @@
 				{
 					date: "June 4, 2025",
 					time: "11:00 AM",
-					location: "General Hospital, Kano",
 					status: "Completed",
 					reason: "First trimester ultrasound",
 				},
 				{
 					date: "May 20, 2025",
 					time: "1:30 PM",
-					location: "City Clinic, Lagos",
 					status: "Cancelled",
 					reason: "Patient unable to attend",
 				},
