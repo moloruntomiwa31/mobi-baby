@@ -26,7 +26,40 @@
 				</div>
 
 				<div class="overflow-y-auto px-4 py-3 space-y-4 flex-1">
-					<BookingCard />
+					<div class="flex flex-col gap-2" v-if="path === '/dashboard/medic'">
+						<RecentChat
+							v-for="(message, idx) in recentChats"
+							:key="message.name + idx"
+							:message="message"
+							:class="[idx === 0 ? 'bg-slate-200' : '']"
+						/>
+					</div>
+					<div
+						class="bg-white p-4 rounded-lg flex flex-col gap-2 shadow overflow-y-auto"
+						v-else-if="path === '/dashboard/chat'"
+					>
+						<div class="flex items-center gap-2">
+							<BriefcaseMedical class="w-6 h-6 text-primaryBlue" />
+							<BaseText
+								content="Medical Practitioner"
+								bold
+								clamp
+								class="font-semibold"
+							/>
+						</div>
+						<BaseText
+							content="Need extra help? Contact a medical practitioner."
+							size="sm"
+							class="text-gray-600"
+						/>
+						<Button
+							variant="yellow"
+							class="w-full"
+							@click="navigateTo('/dashboard/chat/medic')"
+							>Start Chatting</Button
+						>
+					</div>
+					<BookingCard v-else />
 					<Button variant="yellow" size="rounded" class="w-full mb-4">
 						Logout
 					</Button>
@@ -37,10 +70,24 @@
 </template>
 
 <script setup lang="ts">
+import {BriefcaseMedical} from "lucide-vue-next"
 	defineProps<{
 		show: boolean;
 		onClose: () => void;
 	}>();
+	const recentChats = [
+		{
+			name: "Amina Shekinat",
+			message: "Doctor, I missed my last appointment...",
+		},
+		{ name: "Chinonso Uche", message: "When is my next checkup scheduled?" },
+		{ name: "Grace Aliyu", message: "I’m experiencing some discomfort..." },
+		{ name: "Sade Okoro", message: "Can I reschedule tomorrow’s appointment?" },
+		{ name: "Halima Bello", message: "Thank you for your advice!" },
+	];
+
+	const route = useRoute();
+	const path = computed(() => route.path);
 </script>
 
 <style scoped>

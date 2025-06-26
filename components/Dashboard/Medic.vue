@@ -29,17 +29,11 @@
 				<div
 					class="flex items-center gap-4 overflow-x-auto flex-nowrap whitespace-nowrap no-scrollbar w-full"
 				>
-					<div
-						v-for="messages in recentChats"
-						:key="messages.message"
-						class="flex items-center gap-3 p-3 bg-gray/50 rounded-lg"
-					>
-						<Avatar />
-						<div class="flex flex-col">
-							<BaseText :content="messages.name" size="sm" bold />
-							<BaseText :content="messages.message" size="xs" clamp />
-						</div>
-					</div>
+					<RecentChat
+						v-for="(message, idx) in recentChats"
+						:key="message.name + idx"
+						:message="message"
+					/>
 				</div>
 			</div>
 			<BaseEmptyState
@@ -58,7 +52,13 @@
 </template>
 
 <script setup lang="ts">
-	import { User, CalendarDays, MessageCircle, ListTodo } from "lucide-vue-next";
+	import {
+		User,
+		CalendarDays,
+		MessageCircle,
+		ListTodo,
+		Check,
+	} from "lucide-vue-next";
 
 	const medicInfo = [
 		{
@@ -89,7 +89,10 @@
 
 	// Dummy recent chats (replace with real data source later)
 	const recentChats = [
-		{ name: "Amina Yusuf", message: "Doctor, I missed my last appointment..." },
+		{
+			name: "Amina Shekinat",
+			message: "Doctor, I missed my last appointment...",
+		},
 		{ name: "Chinonso Uche", message: "When is my next checkup scheduled?" },
 		{ name: "Grace Aliyu", message: "I’m experiencing some discomfort..." },
 		{ name: "Sade Okoro", message: "Can I reschedule tomorrow’s appointment?" },
