@@ -60,7 +60,7 @@
 						>
 					</div>
 					<BookingCard v-else />
-					<Button variant="yellow" size="rounded" class="w-full mb-4">
+					<Button variant="destructive" size="rounded" class="w-full mb-4">
 						Logout
 					</Button>
 				</div>

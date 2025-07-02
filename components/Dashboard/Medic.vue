@@ -20,7 +20,7 @@
 		<div class="bg-white p-4 rounded-lg">
 			<div class="flex justify-between items-center mb-4">
 				<BaseText as="h2" size="md" bold>Recent chats</BaseText>
-				<NuxtLink to="/" class="text-primaryPink text-sm font-medium">
+				<NuxtLink to="/dashboard/chat" class="text-primaryPink text-sm font-medium">
 					View all
 				</NuxtLink>
 			</div>

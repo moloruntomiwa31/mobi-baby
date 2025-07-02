@@ -136,6 +136,9 @@
   body {
     @apply bg-background text-foreground font-display;
   }
+  button {
+    @apply cursor-pointer shadow;
+  }
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
